@@ -6,6 +6,7 @@ import { Content, KeyTextField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import gsap from "gsap";
 import Bounded from "@/components/Bounded";
+import Shapes from '@/slices/Hero/Shapes'
 
 /**
  * Props for `Hero`.
@@ -76,6 +77,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       ref={component}
     >
       <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center">
+        <Shapes/>
         <div className="col-start-1 md:row-start-1">
           <h1 
           className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter" 
@@ -85,7 +87,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           </h1>
           <span className="job-title block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-2x1 font-bold uppercase tracking-[.2m] text-transparent opacity-0 md:text-4x1">{slice.primary.tag_line}</span>
         </div>
-        
       </div>
       
     </Bounded>
