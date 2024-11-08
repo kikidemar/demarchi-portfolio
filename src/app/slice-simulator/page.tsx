@@ -1,20 +1,22 @@
-import {
-  SliceSimulator,
-  SliceSimulatorParams,
-  getSlices,
-} from "@slicemachine/adapter-next/simulator";
+import { Metadata } from "next";
 import { SliceZone } from "@prismicio/react";
 
-import { components } from "../../slices";
+import { createClient } from "@/prismicio";
+import { components } from "@/slices";
 
-export default function SliceSimulatorPage({
-  searchParams,
-}: SliceSimulatorParams) {
-  const slices = getSlices(searchParams.state);
+export default async function Page() {
+  const client = createClient();
+  const page = await client.getSingle("homepage");
 
-  return (
-    <SliceSimulator background="#121b2f">
-      <SliceZone slices={slices} components={components} />
-    </SliceSimulator>
-  );
+  return <SliceZone slices={page.data.slices} components={components} />;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const page = await client.getSingle("homepage");
+
+  return {
+    title: page.data.meta_title,
+    description: page.data.meta_description,
+  };
 }
