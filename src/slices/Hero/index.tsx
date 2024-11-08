@@ -80,12 +80,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
         <Shapes/>
         <div className="col-start-1 md:row-start-1">
           <h1 
-          className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter" 
+          className="mb-8 text-[clamp(3rem,15vmin,20rem)] font-extrabold leading-none tracking-tighter" 
           aria-label={slice.primary.first_name + ' ' + slice.primary.last_name}>
-            <span className="block text-slate-300">{renderLetters(slice.primary.first_name, 'first')}</span>
-            <span className="-mt0[.2em] block text-slate-500">{renderLetters(slice.primary.last_name, 'last')}</span>
+            <span className="block text-slate-300 select-none">{renderLetters(slice.primary.first_name, 'first')}</span>
+            <span className="-mt0[.2em] block text-slate-500 select-none">{renderLetters(slice.primary.last_name, 'last')}</span>
           </h1>
-          <span className="job-title block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-2x1 font-bold uppercase tracking-[.2m] text-transparent opacity-0 md:text-4x1">{slice.primary.tag_line}</span>
+          <span className="job-title block select-none bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-1xl font-bold uppercase tracking-[.2m] text-transparent opacity-0 md:text-4xl">{slice.primary.tag_line}</span>
         </div>
       </div>
       
