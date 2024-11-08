@@ -31,7 +31,7 @@ export default function ContentList({
   const urlPrefix = '/'
 
   useEffect (()=> {
-    let ctx = gsap.context(()=>{
+    const ctx = gsap.context(()=>{
       itemsRef.current.forEach((item)=>{
         gsap.fromTo(
           item,
@@ -61,7 +61,7 @@ export default function ContentList({
 
       const speed = Math.sqrt(Math.pow(mousePosition.x - lastMousePosition.current.x, 2))
 
-      let ctx = gsap.context(()=>{
+      const ctx = gsap.context(()=>{
         if(currentItem !== null) {
           const maxY = window.scrollY + window.innerHeight - 350
           const maxX = window.innerWidth - 250

@@ -137,7 +137,7 @@ function Geometry({ r, position, geometry, materials, soundEffects }) {
   }
 
   useEffect(() => {
-    let ctx=  
+    const ctx=  
       gsap.context(()=>{
       setVisible(true)
       gsap.from(meshRef.current.scale, {
