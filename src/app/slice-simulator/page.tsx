@@ -6,18 +6,22 @@ import {
 import { SliceZone } from "@prismicio/react";
 import { components } from "../../slices";
 
+import dynamic from 'next/dynamic';
+
+const SliceSimulatorClient = dynamic(
+  () => import('@slicemachine/adapter-next/simulator').then(mod => mod.SliceSimulator),
+  { ssr: false } // Desactivar el rendering en el servidor
+);
+
 export default async function SliceSimulatorPage({
   searchParams,
 }: SliceSimulatorParams) {
-  // Esperar que la promesa se resuelva antes de obtener el valor de 'state'
   const resolvedParams = await searchParams;
-
-  // Acceder al valor de 'state' después de resolver la promesa
   const slices = getSlices(resolvedParams.state);
 
   return (
-    <SliceSimulator background="#121b2f">
+    <SliceSimulatorClient background="#121b2f">
       <SliceZone slices={slices} components={components} />
-    </SliceSimulator>
+    </SliceSimulatorClient>
   );
 }
