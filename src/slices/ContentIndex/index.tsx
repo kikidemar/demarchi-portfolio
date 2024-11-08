@@ -1,3 +1,5 @@
+'use client'
+
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
 import { Content } from "@prismicio/client";
