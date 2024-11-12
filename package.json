@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postinstall": "npm install --legacy-peer-deps",
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine"
