@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "preinstall": "npm install --legacy-peer-deps",
     "build": "next build",
-    "postinstall": "npm install --legacy-peer-deps",
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine"
